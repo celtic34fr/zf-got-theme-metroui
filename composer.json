@@ -1,0 +1,49 @@
+{
+  "name": "celtic34fr/zf-got-theme-metroui",
+  "description": "Metro UI like inteface Theme using zf-graphic-object-templating",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "templating",
+    "engine",
+    "twig",
+    "zf"
+  ],
+  "authors": [
+    {
+      "name":      "Gilbert ARMENGAUD",
+      "email":     "gilbert.armengaud@gmail.com",
+      "role":      "Project Leader"
+    }
+  ],
+  "homepage": "http://github.com/celtic34fr/zf-got-theme-metroui",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "celtic34fr/zf-graphic-object-templating-twig": "@dev",
+    "celtic34fr/zf-got-twig-extension": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "MetroUI_GET\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+    }
+  },
+  "extra": [],
+  "scripts": {
+    "development-disable": "zf-development-mode disable",
+    "development-enable": "zf-development-mode enable",
+    "development-status": "zf-development-mode status",
+    "post-create-project-cmd": [
+      "@development-enable"
+    ],
+    "serve": "php -S 0.0.0.0:8080 -t public public/index.php"
+  },
+  "require-dev": {
+    "zendframework/zend-developer-tools": "^1.1.0"
+  }
+}

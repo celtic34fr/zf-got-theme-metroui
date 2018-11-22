@@ -1,0 +1,102 @@
+{# template objet OETile #}
+
+<style>
+    {% if objet.badge == true %}
+    #{{ objet.id }} .badgeGOT {
+        position: absolute;
+        bottom: 2px;
+        right: 4px;
+    }
+    #{{ objet.id }}.tile-small .badgeGOT,
+    #{{ objet.id }}.tile-small-y .badgeGOT{
+        font-size: 9px;
+    }
+    #{{ objet.id }} .labelTile {
+        position: absolute;
+        top: 4px;
+        left: 6px;
+    }
+    #{{ objet.id }}.tile-small .labelTile ,
+    #{{ objet.id }}.tile-small-y .labelTile {
+        font-size: 10px;
+    }
+    {% else %}
+    #{{ objet.id }} .labelTile {
+        position: absolute;
+        bottom: 4px;
+        left: 6px;
+    }
+    #{{ objet.id }} .badgeGOT {
+        display: none;
+    }
+    {% endif %}
+
+    {% if objet.aspect == imageset %}
+    .tile-content.image-set > div {
+        margin: 0;
+        padding: 0;
+        width: 25%;
+        height: 50%;
+        float: left;
+        border: 1px #1e1e1e solid;
+    }
+
+    .tile-content.image-set > div:first-child {
+        width: 50%;
+        float: left;
+        height: 100%;
+    }
+
+    .tile-content.image-set img { height: 100%; }
+    {% endif %}
+</style>
+
+<div id="{{ objet.id }}" data-role="tile" data-objet="{{ objet.object }}"
+    {% if objet.display is not empty %}data-display="{{ objet.display}}" {% endif %}
+    {% if objet.size != 'tile-custom' %}
+    class="gotObject {{ objet.size }} {{ objet.bgcolor }} {{ objet.fgcolor }}"
+    {% else %}
+    class="{{ objet.sizeX }} {{ objet.sizeY }} {{ objet.bgcolor }} {{ objet.fgcolor }}"
+    {% endif %}
+    {% include "zf3-graphic-object-templating/oobjects/eventsHTML.twig" with {'events':objet.event} %}
+>
+    {% switch(objet.aspect) %}
+        {% case 'iconic' %}
+        <div class="tile-content iconic">
+            <span class="icon {{ objet.iconName }}"></span>
+            {{ content | raw }}
+        </div>
+        {% case 'imageset' %}
+        <div class="tile-content image-set">
+            {{ content | raw }}
+        </div>
+        {% case 'carousel' %}
+        <div class="tile-content">
+            <div class="carousel" data-role="carousel" data-controls="false" data-markers="true" style="width: 100%; height: 150px;">
+                {{ content | raw }}
+                <div class="carousel-bullets">
+                    {% for ind in 1..objet.images|length %}
+                    <a class="carousel-bullet" href="javascript:void(0)" data-num="{{ ind - 1 }}"></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% default %}
+        <div class="tile-content">
+            {{ content | raw }}
+        </div>
+    {% endswitch %}
+
+    {% if objet.label is not empty %}
+    <span class="labelTile">{{ objet.label }}</span>
+    {% endif %}
+
+    {% if objet.event is not empty %}
+    <script id="{{ objet.id }}Script" type="text/javascript">
+        $(document).ready(function () {
+        {% include "zf3-graphic-object-templating/oobjects/eventsJS.twig" with { events:objet.event } %}
+        });
+    </script>
+    {% endif %}
+</div>
+

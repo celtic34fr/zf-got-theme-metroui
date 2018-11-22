@@ -1,0 +1,75 @@
+{% extends 'layout/layout' %}
+
+{% block Hstyle %}
+    <link href="{{ basePath('gotextension/metroui/css/metro-responsive.css') }}" media="screen" rel="stylesheet" type="text/css">
+    <link href="{{ basePath('gotextension/metroui/css/metro-icons.css') }}" media="screen" rel="stylesheet" type="text/css">
+    <link href="{{ basePath('gotextension/metroui/css/metro.css') }}" media="screen" rel="stylesheet" type="text/css">
+
+    <link href="{{ basePath('gotextension/metroui/css/metroui.css') }}" media="screen" rel="stylesheet" type="text/css">
+
+    {{ gotHeader(headerMenuMGET) }}
+    {{ gotHeader(sideMenuMGET) }}
+{% endblock Hstyle %}
+
+{% block Hscript %}
+    <script type="text/javascript" src="{{ basePath('gotextension/metroui/js/metro.js') }}"></script>
+    {% block metrouiScript %}{% endblock metrouiScript %}
+{% endblock Hscript %}
+
+{% block Bcontent %}
+    <div class="Mcontent">
+        {% block Mcontent %}
+
+        <style>
+            .app-bar {
+                height: 4em !important;
+            }
+
+            .Mcontent {
+                height: 100%;
+            }
+
+            .page-content {
+                height: calc(100% - 4em);
+            }
+
+            .page-content .flex-grid .row {
+                margin: unset;
+            }
+
+            .float-left {
+                float: left !important;
+            }
+
+            .float-right {
+                float: right !important;
+            }
+        </style>
+
+        <div class="app-bar darcula" data-role="appbar">
+            {{ gotRender(headerMenuMGET) }}
+        </div>
+
+        <div class="page-content">
+            <!--div class="flex-grid no-responsive-future" style="height: 100%;"-->
+            <div class="flex-grid" style="height: 100%;">
+                <div class="row" style="height: 100%;">
+                    <div class="cell size-x2400" id="cell-sidebar">
+                        {{ gotRender(sideMenuMGET) }}
+                    </div>
+                    <div class="cell auto-size padding20 bg-white" id="cell-content">
+                        {% block content %}{{ content|raw }}{% endblock content %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock Mcontent %}
+        <footer class="row">
+            {% block metrouiFooter %}
+                <p>&copy; 2005 -
+                    {{ 'now' | date('Y') }}
+                    by Zend Technologies Ltd. All rights reserved.</p>
+            {% endblock metrouiFooter %}
+        </footer>
+    </div>
+{% endblock Bcontent %}

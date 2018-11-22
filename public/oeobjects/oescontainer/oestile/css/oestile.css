@@ -1,0 +1,28 @@
+
+    div.tile {
+        opacity: 1;
+        transform: scale(1);
+        transition: 0.3s;
+    }
+
+    span.badgeTile span {
+        padding: 3px 6px!important;
+    }
+
+    .tile-small span.labelTile {
+        font-size: 10px;
+    }
+
+    .tile-small .badgeGOT {
+        font-size: 8px;
+        min-width: 10px;
+        border-radius: 10px;
+    }
+
+    .tile-small-y div.iconic .icon {
+        width: 32px;
+        height: 32px;
+        margin-top: -16px;
+        margin-left: -16px;
+        font-size: 32px;
+    }
