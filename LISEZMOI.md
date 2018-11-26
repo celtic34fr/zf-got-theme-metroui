@@ -1,6 +1,6 @@
 # GraphicObjectTemplating Theme MetroUI (zf-got-theme-metroui)
 
-Ce thème graphique pour **GraphicObjectTemplating** vous fournit les briques utiles pour construire et gérer votre propre interface utilisateur Metro UI.
+Ce thème graphique pour **GraphicObjectTemplating** vous fournit les briques utiles pour construire et gérer votre propre interface utilisateur Metro.
 
 ## Avant toute installation ##
 

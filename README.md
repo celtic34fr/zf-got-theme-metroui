@@ -1,6 +1,6 @@
 # GraphicObjectTemplating Theme MetroUI (zf-got-theme-metroui)
 
-This graphic theme for **GraphicObjectTemplating** give you the brick to build and manage your own MetroUI UI.
+This graphic theme for **GraphicObjectTemplating** give you the brick to build and manage your own MetroUI.
 
 ## Before any Installation ##
 
