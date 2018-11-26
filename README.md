@@ -22,5 +22,19 @@ First, in **config/modules.config.php** file, add the following line :
     ...
     'MetroUI_GET',
     ...
+In public folder of your project, first create a folder named gotextension.
+In this folder, create a linked directory with the vendor/celtic34fr/zf-got-theme-metroui/public directory named metroui with the following command executed on Linux :
+
+    cd public
+    mkdir gotextension
+    cd gotextension
+    ln -s ../../vendor/celtic34fr/zf-got-theme-metroui/public metroui
+
+For Windows environment use only cmd.exe, the command exected as administrator in public folder became :
+
+    cd public
+    mkdir gotextension
+    cd gotextension
+    mklink /D metroui ..\..\vendor\celtic34fr\zf-got-theme-metroui\public
 
 Now, all is is ordre to work. You can begin to develop your own extension by adding a new module to your project, your application.

@@ -23,4 +23,20 @@ En premier, dans le fichier **config/modules.config.php**, ajoutez la ligne suiv
     'MetroUI_GET',
     ...
 
+Dans le dossier *public* de votre projet, en premier créez un répertoire nommé *gotextensions*.
+Dans ce répertoire, créez un répertoire lié au répertoire **vendor/celtic34fr/zf-got-theme-metroui/public** que vous nommerez **metroui** avec la commande suivante sous Linux :
+
+    cd public
+    mkdir gotextension
+    cd gotextension
+    ln -s ../vendor/celtic34fr/zf-graphic-object-templating-twig/public graphicobjecttemplating
+
+Dans un environnement **Windows** utiliser seulement **cmd.exe** pour lancer la commande à exécuter en tant qu'administrateur, dans le répertoire public du projet :
+
+    cd public
+    mkdir gotextension
+    cd gotextension
+    mklink /D graphicobjecttemplating ..\vendor\celtic34fr\zf-graphic-object-templating\public
+
+
 Maintenant, tout est en ordre pour fonctionner. Vous pouvez commencer à développer votre propre extension en ajoutant un nouveau module à votre projet, votre application.
