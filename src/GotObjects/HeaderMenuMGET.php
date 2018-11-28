@@ -45,13 +45,15 @@ class HeaderMenuMGET extends OSDiv
         $this->tileAreaControlSAG   -> saveProperties();
 
         $this->btnUserTAC->setClasses('float-right width-unset square-button icon-right bg-black fg-black bg-hover-dark no-border');
-        $this->btnUserTAC->setWidthBT(0);
+        $this->btnUserTAC->setWidth('38px');
+        $this->btnUserTAC->setHeight('32px');
         $this->btnUserTAC->setIcon('fa fa-user icon');
         $this->btnUserTAC->setType(ODButton::BUTTONTYPE_CUSTOM);
         $this->btnUserTAC->saveProperties();
 
         $this->btnLogoutTAC->setClasses('float-right square-button bg-black fg-white bg-hover-dark no-border');
-        $this->btnLogoutTAC->setWidthBT(1);
+        $this->btnLogoutTAC->setWidth('38px');
+        $this->btnLogoutTAC->setHeight('32px');
         $this->btnLogoutTAC->setIcon('fa fa-power-off');
         $this->btnLogoutTAC->evtClick(self::class, 'logout');
         $this->btnLogoutTAC->setType(ODButton::BUTTONTYPE_CUSTOM);
