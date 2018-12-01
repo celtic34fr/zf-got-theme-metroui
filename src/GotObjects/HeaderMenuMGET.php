@@ -18,6 +18,8 @@ class HeaderMenuMGET extends OSDiv
     protected $btnUserTAC;
     /** @var  ODButton $btnLogoutTAC */
     protected $btnLogoutTAC;
+    /** @var ODButton $btnConfigTAC */
+    protected $btnConfigTAC;
 
     public function __construct()
     {
@@ -35,6 +37,7 @@ class HeaderMenuMGET extends OSDiv
 
         $this->btnUserTAC           = new ODButton('btnUserTAC');
         $this->btnLogoutTAC         = new ODButton('btnLogoutTAC');
+        $this->btnConfigTAC         = new ODButton('btnConfigTAC');
 
         $this->titleHMG             -> setWidthBT(5);
         $this->titleHMG             -> addClass('float-left');
@@ -60,6 +63,15 @@ class HeaderMenuMGET extends OSDiv
         $this->btnLogoutTAC->setNature(ODButton::BUTTONNATURE_DANGER);
         $this->btnLogoutTAC->saveProperties();
 
+        $this->btnConfigTAC->setClasses('float-right square-button bg-black fg-white bg-hover-dark no-border');
+        $this->btnConfigTAC->setWidth('38px');
+        $this->btnConfigTAC->setHeight('32px');
+        $this->btnConfigTAC->setIcon('fa fa-cog');
+        $this->btnConfigTAC->evtClick(self::class, 'logout');
+        $this->btnConfigTAC->setType(ODButton::BUTTONTYPE_CUSTOM);
+        $this->btnConfigTAC->setNature(ODButton::BUTTONNATURE_WARNING);
+        $this->btnConfigTAC->saveProperties();
+
         $this->addChild($this->titleHMG);
         $this->addChild($this->tileAreaControlSAG);
         $this->addClass('fg-white tile-area-scheme-dark');
@@ -68,6 +80,7 @@ class HeaderMenuMGET extends OSDiv
 
         $this->tileAreaControlSAG->addChild($this->btnLogoutTAC);
         $this->tileAreaControlSAG->addChild($this->btnUserTAC);
+        $this->tileAreaControlSAG->addChild($this->btnConfigTAC);
         $this->tileAreaControlSAG->saveProperties();
     }
 
@@ -96,6 +109,10 @@ class HeaderMenuMGET extends OSDiv
         $btnLogoutTAC   = OObject::buildObject('btnLogoutTAC', $sessionObject);
         $btnLogoutTAC->disable();
         $btnLogoutTAC->saveProperties();
+        /** @var ODButton $btnConfigTAC */
+        $btnConfigTAC   = OObject::buildObject('btnConfigTAC', $sessionObject);
+        $btnConfigTAC->disable();
+        $btnConfigTAC->saveProperties();
     }
 
     public function enableBtn()
@@ -109,11 +126,32 @@ class HeaderMenuMGET extends OSDiv
         $btnLogoutTAC   = OObject::buildObject('btnLogoutTAC', $sessionObject);
         $btnLogoutTAC->enable();
         $btnLogoutTAC->saveProperties();
+        /** @var ODButton $btnConfigTAC */
+        $btnConfigTAC   = OObject::buildObject('btnConfigTAC', $sessionObject);
+        $btnConfigTAC->enable();
+        $btnConfigTAC->saveProperties();
+    }
+
+    public function displayNoneBtn()
+    {
+        $sessionObject  = OObject::validateSession();
+        /** @var ODButton $btnUserTAC */
+        $btnUserTAC     = OObject::buildObject('btnUserTAC', $sessionObject);
+        $btnUserTAC->setDisplay(self::DISPLAY_NONE);
+        $btnUserTAC->saveProperties();
+        /** @var ODButton $btnLogoutTAC */
+        $btnLogoutTAC   = OObject::buildObject('btnLogoutTAC', $sessionObject);
+        $btnLogoutTAC->setDisplay(self::DISPLAY_NONE);
+        $btnLogoutTAC->saveProperties();
+        /** @var ODButton $btnConfigTAC */
+        $btnConfigTAC   = OObject::buildObject('btnConfigTAC', $sessionObject);
+        $btnConfigTAC->setDisplay(self::DISPLAY_NONE);
+        $btnConfigTAC->saveProperties();
     }
 
     public function evtClickBtn($id, $class, $method, $stopEvent = true)
     {
-        if (!in_array($id, ['btnUserTAC', 'btnLogoutTAC'])) {
+        if (!in_array($id, ['btnUserTAC', 'btnLogoutTAC', 'btnConfigTAC'])) {
             throw new \Exception('unknown button id '.$id);
         }
 

@@ -42,11 +42,22 @@ class MetroUIServices
 
         if ($identity) {
             $headerMenuMGET->enableBtn();
+            $headerMenuMGET->displayNoneBtn();
             foreach ($btnEvts as $btnEvt) {
                 $sessionObjects = OObject::validateSession();
                 /** @var ODButton $object */
                 $object     = OObject::buildObject($btnEvt['id'], $sessionObjects);
                 $rc         = $object->evtClick($btnEvt['class'], $btnEvt['method'], $btnEvt['stopEvent']);
+                if (array_key_exists('infoBulle', $btnEvt)&& !empty($btnEvt['infoBulle'])) {
+                    $infoBulle  = $btnEvt['infoBulle'];
+                    $posSepar   = strpos($infoBulle, ':');
+                    $type       = substr($infoBulle, 0, $posSepar);
+                    $texte      = substr($infoBulle, $posSepar + 1);
+                    $object->setIBType($type);
+                    $object->setIBContent($texte);
+                    $object->setIBPlacement(OObject::IBPLACEMENT_BOTTOM);
+                }
+                $object->setDisplay(OObject::DISPLAY_BLOCK);
                 $object->saveProperties();
             }
         }
