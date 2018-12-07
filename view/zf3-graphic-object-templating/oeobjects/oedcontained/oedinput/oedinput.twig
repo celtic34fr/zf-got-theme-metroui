@@ -134,7 +134,7 @@
             {% if infoBulle is defined and infoBulle.tltle is not empty %}
                 {% include 'graphic-object-templating/oobject/infoBulle.twig'  with infoBulle %}
             {% endif %}
-            {% if objet.autoFocus %} autofocus {% endif %}
+			{% if objet.autoFocus%}autofocus{% endif %}
     />
     <button class="boutton helper-button oedinput {{ helperType }}" tabindex="-1" type="button"><span class="{{ helperIcon }}"></span></button>
     {% if objet.type != "hidden" %}
@@ -164,6 +164,10 @@
                     var {{ objet.id }} = new oedinput($('#{{ objet.id }}'));
                     console.log({{ objet.id }}.getData(''));
                 });
+				
+				{% if objet.autoFocus%}
+				{% include "zf3-graphic-object-templating/oobjects/autoFocus.js.twig" with {id : ( objet.id ~ "_" ~ objet.type )} %}
+				{% endif %}
             });
         </script>
     {% endif %}
