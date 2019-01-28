@@ -59,27 +59,31 @@ class LoginFormMGET extends OSForm
         $this->usernameLFG->setLabel('Username');
         $this->usernameLFG->setType(ODInput::INPUTTYPE_TEXT);
         $this->usernameLFG->setLabelWidthBT(4);
-//        $this->usernameLFG->setStyle('padding-top:1.5em;');
+        $this->usernameLFG->setClasses('ospaddingV02');
         $this->usernameLFG->enaAutoFocus();
         $this->usernameLFG->saveProperties();
 
         $this->passwordLFG->setLabel('Password');
         $this->passwordLFG->setType(ODInput::INPUTTYPE_PASSWORD);
         $this->passwordLFG->setLabelWidthBT(4);
+        $this->passwordLFG->setClasses('ospaddingV02');
         $this->passwordLFG->saveProperties();
 
 
         $this->rememberMeLFG->addOption(1, 'Remember Me');
+        $this->rememberMeLFG->setClasses('ospaddingV02');
         $this->rememberMeLFG->saveProperties();
 
         $this->forgetPassLFG->setLabel("Forgot your password ?");
         $this->forgetPassLFG->setType(ODButton::BUTTONTYPE_LINK);
         $this->forgetPassLFG->setNature(ODButton::BUTTONNATURE_LINK);
+        $this->forgetPassLFG->setClasses('ospaddingV02');
         $this->forgetPassLFG->setClasses('ospaddingV05');
 
         $this->notRegisterLFG->setLabel("Not yet registered ?");
         $this->notRegisterLFG->setType(ODButton::BUTTONTYPE_LINK);
         $this->notRegisterLFG->setNature(ODButton::BUTTONNATURE_LINK);
+        $this->notRegisterLFG->setClasses('ospaddingV02');
         $this->notRegisterLFG->setClasses('ospaddingV05');
 
         $this->notificationLFG->setAction(ODNotification::NOTIFICATIONACTION_INIT);
