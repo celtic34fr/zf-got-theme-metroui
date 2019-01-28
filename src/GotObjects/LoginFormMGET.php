@@ -115,6 +115,7 @@ class LoginFormMGET extends OSForm
             1,
             self::class,
             'evtLoginUser');
+        $this->saveProperties();
         $this->setDefaultBtn('signin');
 
 
