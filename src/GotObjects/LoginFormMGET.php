@@ -102,7 +102,7 @@ class LoginFormMGET extends OSForm
 
 //        $this->enaAutoCenter('25em', '12em');
         $this->enaAutoCenter();
-        $this->setACWidthHeight('30em', '11em');
+        $this->setACWidthHeight('30em', '16em');
 //        $this->setStyle('border: 2px solid black;background-color: white;');
         $this->addCodeCss('body', 'background-color:darkBlue;');
         $this->addCodeCss('hr', 'display:none;');
