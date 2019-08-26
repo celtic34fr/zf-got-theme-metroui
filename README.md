@@ -37,4 +37,4 @@ For Windows environment use only cmd.exe, the command exected as administrator i
     cd gotextension
     mklink /D metroui ..\..\vendor\celtic34fr\zf-got-theme-metroui\public
 
-Now, all is is ordre to work. You can begin to develop your own extension by adding a new module to your project, your application.
+Now, all is in order to work. You can begin to develop your own extension by adding a new module to your project, your application.
