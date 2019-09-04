@@ -1,6 +1,7 @@
 {% extends 'layout/layout' %}
 
 {% block Hstyle %}
+    {{ parent() }}
     <link href="{{ basePath('gotextension/metroui/css/metro-responsive.css') }}" media="screen" rel="stylesheet" type="text/css">
     <link href="{{ basePath('gotextension/metroui/css/metro-icons.css') }}" media="screen" rel="stylesheet" type="text/css">
     <link href="{{ basePath('gotextension/metroui/css/metro.css') }}" media="screen" rel="stylesheet" type="text/css">
@@ -12,6 +13,7 @@
 {% endblock Hstyle %}
 
 {% block Hscript %}
+    {{ parent() }}
     <script type="text/javascript" src="{{ basePath('gotextension/metroui/js/metro.js') }}"></script>
     {% block metrouiScript %}{% endblock metrouiScript %}
 {% endblock Hscript %}

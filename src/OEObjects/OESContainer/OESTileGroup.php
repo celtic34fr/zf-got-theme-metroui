@@ -27,8 +27,8 @@ class OESTileGroup extends OESContainer
 
     public function __construct($id)
     {
-        $pathConfig = __DIR__ . "/../../../view/graphic-object-templating/oeobjects/oescontainer/oestilegroup/oestilegroup.config.php";
-        parent::__construct($id,$pathConfig , OESTileGroup::class);
+        $pathConfig[]   = __DIR__ . "/../../../view/graphic-object-templating/oeobjects/oescontainer/oestilegroup/oestilegroup.config.php";
+        parent::__construct($id, $pathConfig , []);
         $this->enable();
         return $this;
     }

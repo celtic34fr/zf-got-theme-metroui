@@ -75,8 +75,8 @@ class OESTile extends OESContainer
 
     public function __construct($id, $build = false, $aspect = null)
     {
-        $oeopath    = __DIR__ . "/../../../view/zf3-graphic-object-templating/oeobjects/oescontainer/oestile/oestile.config.php";
-        $oopath     = "oobjects/odcontained/odcontained.config.php";
+        $oeopath[]  = __DIR__ . "/../../../view/zf3-graphic-object-templating/oeobjects/oescontainer/oestile/oestile.config.php";
+        $oopath[]   = "oobjects/odcontained/odcontained.config.php";
         parent::__construct($id, $oeopath, $oopath);
         $this->setClassName(self::class);
 
